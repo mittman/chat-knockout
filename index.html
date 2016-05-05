@@ -15,14 +15,13 @@
     <main>
       <section class='comment-input'>
         <p>Add Your Comment:</p>
-        <input><button>+</button>
+        <form data-bind="submit: addComment">
+          <input data-bind="value: msg"><button data-bind="click: addComment">+</button>
+        </form>
       </section>
 
-      <section class='comments'>
-        <p>This is the first comment!</p>
-        <p>Here's the second one!</p>
-        <p>And this is one more.</p>
-        <p>Here is another one!</p>
+      <section class='comments' data-bind="foreach: feedback, visible: feedback().length > 0">
+        <p data-bind="text: comment" >&nbsp;</p>
       </section>
     </main>
 
